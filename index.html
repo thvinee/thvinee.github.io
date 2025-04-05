@@ -51,25 +51,29 @@
             bottom: 10px; /* Position footer at the bottom */
             font-size: 20px; /* Font size for header and footer */
         }
-        .centered-text {
-            color: #00ff00; /* Green color */
-            font-size: 48px; /* Font size for centered text */
-            position: relative; /* Position relative for centered text */
-            z-index: 1; /* Ensure it appears above the background */
+        p {
+            color: #00ff00; /* Fully opaque green color */
+            font-size: 24px; /* Adjust font size as needed */
+            margin: 10px 0; /* Add margin for spacing between paragraphs */
             opacity: 1; /* Set opacity to fully opaque */
-            text-align: center; /* Center the text */
+        }
+        a {
+            color: #00ff00; /* Set link color to green */
+            text-decoration: none; /* Remove underline from links */
+        }
+        a:hover {
+            text-decoration: underline; /* Add underline on hover for better visibility */
         }
         main {
-    position: relative; /* Position relative for stacking context */
-    z-index: 5; /* Ensure it appears above the background */
-    /*background-color: rgba(0, 0, 0, 0.7);  Semi-transparent black background */
-    padding: 20px; /* Add padding for better spacing */
-    border-radius: 1px; /* Optional: rounded corners */
-    text-align: center; /* Center the text */
-opacity: 100; /* Set opacity to fully opaque */
-color: #00ff00; /* Green color */
-
-}
+            position: relative; /* Position relative for stacking context */
+            z-index: 5; /* Ensure it appears above the background */
+            /*background-color: rgba(0, 0, 0, 0.7);  Semi-transparent black background */
+            padding: 20px; /* Add padding for better spacing */
+            border-radius: 1px; /* Optional: rounded corners */
+            text-align: center; /* Center the text */
+            opacity: 100; /* Set opacity to fully opaque */
+            color: #00ff00; /* Green color */
+        }
     </style>
 </head>
 <body>
