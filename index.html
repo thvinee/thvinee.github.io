@@ -3,63 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vineeth Vijayakumara Pillai Lethakumary</title>
-<style>
-            body {
+    <title>Random 1s and 0s</title>
+    <style>
+        body {
             background-color: black;
-            background-image: repeating-linear-gradient(
-                0deg,
-                transparent,
-                transparent 10px, /* Adjusted for better visibility */
-                rgba(0, 255, 0, 0.5) 10px, /* Increased opacity */
-                rgba(0, 255, 0, 0.5) 10.5px,
-                transparent 10.5px,
-                transparent 20px /* Adjusted for better visibility */
-            );
-            background-size: 20px 20px; /* Adjust size for visibility */
-            color: #00ff00; /* Green color */
+            color: rgba(0, 255, 0, 0.5); /* Adjusted transparency for better visibility */
             font-family: 'Courier New', Courier, monospace;
             margin: 0;
             padding: 0;
+            overflow: hidden; /* Prevent scrollbars */
+            display: flex;
+            flex-direction: column; /* Stack elements vertically */
+            justify-content: center; /* Center vertically */
+            align-items: center; /* Center horizontally */
+            height: 100vh; /* Full viewport height */
+            position: relative; /* Position relative for absolute elements */
+        }
+        #binary {
+            white-space: nowrap; /* Prevent line breaks */
+            font-size: 24px; /* Adjust font size as needed */
+            text-align: center; /* Center the text */
+            position: absolute; /* Position it absolutely */
+            top: 0; /* Align to the top */
+            left: 0; /* Align to the left */
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            display: flex;
+            flex-wrap: wrap; /* Allow wrapping */
+            align-content: flex-start; /* Align content to the top */
+        }
+        .binary-digit {
+            flex: 0 0 auto; /* Prevent shrinking */
+            margin: 0; /* Remove margin */
+            opacity: 0.5; /* Set opacity for transparency */
+        }
+        header, footer {
+            color: #00ff00; /* Green color */
+            font-size: 32px; /* Font size for header and footer */
+            position: absolute; /* Position absolute for header and footer */
+            width: 100%; /* Full width */
             text-align: center; /* Center the text */
         }
-        .fibonacci {
-            font-size: 24px; /* Adjust font size as needed */
-            white-space: nowrap; /* Prevent line breaks */
-            padding: 20px; /* Add padding for better spacing */
-        }
         header {
-            text-align: center; /* Center the header text */
-            padding: 20px 0; /* Add some padding to the header */
-        }
-        main {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            height: calc(100vh - 100px); /* Adjust height to account for header and footer */
-        }
-        a {
-            color: #00ff00;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        a:hover {
-            text-decoration: underline;
+            top: 10px; /* Position header at the top */
         }
         footer {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            background-color: black;
-            color: #00ff00;
-            padding: 10px 0;
-            text-align: center;
+            bottom: 10px; /* Position footer at the bottom */
         }
-        ul {
-            list-style-type: none; /* Remove bullet points */
-            padding: 0; /* Remove default padding */
+        .centered-text {
+            color: #00ff00; /* Green color */
+            font-size: 48px; /* Font size for centered text */
+            position: relative; /* Position relative for centered text */
+            z-index: 1; /* Ensure it appears above the background */
         }
     </style>
 </head>
@@ -80,5 +75,35 @@
     <footer>
         <p>&copy; 2025 THVINEE</p>
     </footer>
+
+    <div id="binary"></div>
+
+    <script>
+        function generateRandomBinary(length) {
+            let binaryString = '';
+            for (let i = 0; i < length; i++) {
+                binaryString += Math.random() < 0.5 ? '1' : '0'; // Randomly add 1 or 0
+            }
+            return binaryString;
+        }
+
+        function displayRandomBinary() {
+            const binaryElement = document.getElementById('binary');
+            const randomLength = Math.floor(window.innerWidth / 20) * Math.floor(window.innerHeight / 20); // Calculate length based on screen size
+            binaryElement.innerHTML = ''; // Clear previous content
+            for (let i = 0; i < randomLength; i++) {
+                const span = document.createElement('span');
+                span.className = 'binary-digit';
+                span.textContent = generateRandomBinary(1); // Generate a single binary digit
+                binaryElement.appendChild(span);
+            }
+        }
+
+        // Generate and display random binary on page load
+        displayRandomBinary();
+
+        // Regenerate binary on window resize
+        window.addEventListener('resize', displayRandomBinary);
+    </script>
 </body>
 </html>
