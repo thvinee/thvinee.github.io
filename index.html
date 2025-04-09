@@ -107,7 +107,7 @@
 
         function displayRandomBinary() {
             const binaryElement = document.getElementById('binary');
-            const randomLength = Math.floor(window.innerWidth / 20) * Math.floor(window.innerHeight / 20); // Calculate length based on screen size
+            const randomLength = Math.floor(window.innerWidth / 10) * Math.floor(window.innerHeight / 10); // Calculate length based on screen size
             binaryElement.innerHTML = ''; // Clear previous content
             for (let i = 0; i < randomLength; i++) {
                 const span = document.createElement('span');
