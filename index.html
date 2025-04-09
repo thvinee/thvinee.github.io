@@ -1,127 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vineeth VL</title>
-    <style>
-        body {
-            background-color: black;
-            color: rgba(0, 255, 0, 0.5); /* Adjusted transparency for better visibility */
-            font-family: 'Courier New', Courier, monospace;
-            margin: 0;
-            padding: 0;
-            overflow: hidden; /* Prevent scrollbars */
-            display: flex;
-            flex-direction: column; /* Stack elements vertically */
-            justify-content: center; /* Center vertically */
-            align-items: center; /* Center horizontally */
-            height: 100vh; /* Full viewport height */
-            position: relative; /* Position relative for absolute elements */
-        }
-        #binary {
-            white-space: nowrap; /* Prevent line breaks */
-            font-size: 24px; /* Adjust font size as needed */
-            text-align: center; /* Center the text */
-            position: absolute; /* Position it absolutely */
-            top: 0; /* Align to the top */
-            left: 0; /* Align to the left */
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            display: flex;
-            flex-wrap: wrap; /* Allow wrapping */
-            align-content: flex-start; /* Align content to the top */
-        }
-        .binary-digit {
-            flex: 0 0 auto; /* Prevent shrinking */
-            margin: 0; /* Remove margin */
-            opacity: 0.5; /* Set opacity for transparency */
-        }
-        header, footer {
-            color: #00ff00; /* Green color */
-            font-size: 32px; /* Font size for header and footer */
-            position: absolute; /* Position absolute for header and footer */
-            width: 100%; /* Full width */
-            text-align: center; /* Center the text */
-        }
-        header {
-            top: 10px; /* Position header at the top */
-        }
-        footer {
-            bottom: 10px; /* Position footer at the bottom */
-            font-size: 20px; /* Font size for header and footer */
-        }
-        p {
-            color: #00ff00; /* Fully opaque green color */
-            font-size: 24px; /* Adjust font size as needed */
-            margin: 10px 0; /* Add margin for spacing between paragraphs */
-            opacity: 1; /* Set opacity to fully opaque */
-        }
-        a {
-            color: #00ff00; /* Set link color to green */
-            text-decoration: none; /* Remove underline from links */
-        }
-        a:hover {
-            text-decoration: underline; /* Add underline on hover for better visibility */
-        }
-        main {
-            position: relative; /* Position relative for stacking context */
-            z-index: 5; /* Ensure it appears above the background */
-            /*background-color: rgba(0, 0, 0, 0.7);  Semi-transparent black background */
-            padding: 20px; /* Add padding for better spacing */
-            border-radius: 1px; /* Optional: rounded corners */
-            text-align: center; /* Center the text */
-            opacity: 100; /* Set opacity to fully opaque */
-            color: #00ff00; /* Green color */
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vineeth VL</title>
+<style>
+body {
+    background-color: black;
+    color: rgba(0, 255, 0, 0.5); /* Adjusted transparency for better visibility */
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevent scrollbars */
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    height: 100vh; /* Full viewport height */
+    position: relative; /* Position relative for absolute elements */
+}
+#binary {
+    white-space: nowrap; /* Prevent line breaks */
+    font-size: 24px; /* Adjust font size as needed */
+    text-align: center; /* Center the text */
+    position: absolute; /* Position it absolutely */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping */
+    align-content: flex-start; /* Align content to the top */
+}
+.binary-digit {
+    flex: 0 0 auto; /* Prevent shrinking */
+    margin: 0; /* Remove margin */
+    opacity: 0.5; /* Set opacity for transparency */
+}
+header, footer {
+    color: #00ff00; /* Green color */
+    font-size: 32px; /* Font size for header and footer */
+    position: absolute; /* Position absolute for header and footer */
+    width: 100%; /* Full width */
+    text-align: center; /* Center the text */
+}
+header {
+    top: 10px; /* Position header at the top */
+}
+footer {
+    bottom: 10px; /* Position footer at the bottom */
+    font-size: 20px; /* Font size for header and footer */
+}
+p {
+    color: #00ff00; /* Fully opaque green color */
+    font-size: 24px; /* Adjust font size as needed */
+    margin: 10px 0; /* Add margin for spacing between paragraphs */
+    opacity: 1; /* Set opacity to fully opaque */
+}
+a {
+    color: #00ff00; /* Set link color to green */
+    text-decoration: none; /* Remove underline from links */
+}
+a:hover {
+    text-decoration: underline; /* Add underline on hover for better visibility */
+}
+main {
+    position: relative; /* Position relative for stacking context */
+    z-index: 5; /* Ensure it appears above the background */
+    padding: 20px; /* Add padding for better spacing */
+    border-radius: 1px; /* Optional: rounded corners */
+    text-align: center; /* Center the text */
+    opacity: 100; /* Set opacity to fully opaque */
+    color: #00ff00; /* Green color */
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 768px) {
+    body {
+        font-size: 16px; /* Adjust font size for smaller screens */
+    }
+    header h1 {
+        font-size: 24px; /* Smaller header size */
+    }
+    main h2 {
+        font-size: 20px; /* Smaller sub-header size */
+    }
+    p {
+        font-size: 18px; /* Smaller paragraph size */
+    }
+    #binary {
+        font-size: 18px; /* Adjust binary font size */
+    }
+    footer p {
+        font-size: 16px; /* Smaller footer size */
+    }
+    a {
+        padding: 10px; /* Increase padding for touch targets */
+    }
+}
+</style>
 </head>
 <body>
-    <header>
-        <h1>Vineeth Vijayakumara Pillai Lethakumary</h1>
-    </header>
+<header>
+<h1>Vineeth Vijayakumara Pillai Lethakumary</h1>
+</header>
 
-    <main>
-        <h2>Connect with Me</h2>
-        <ul>
-            <p><a href="https://thvinee.wordpress.com" target="_blank">https://thvinee.wordpress.com</a><br></p>
-            <p><a href="https://www.instagram.com/vineethvijayakumarletha" target="_blank">https://www.instagram.com/vineethvijayakumarletha</a><br></p>
-            <p><a href="https://www.linkedin.com/in/vineethvl" target="_blank">https://www.linkedin.com/in/vineethvl</a></p>
-        </ul>
-    </main>
+<main>
+<h2>Connect with Me</h2>
+<ul>
+<p><a href="https://thvinee.wordpress.com" target="_blank">https://thvinee.wordpress.com</a><br></p>
+<p><a href="https://www.instagram.com/vineethvijayakumarletha" target="_blank">https://www.instagram.com/vineethvijayakumarletha</a><br></p>
+<p><a href="https://www.linkedin.com/in/vineethvl" target="_blank">https://www.linkedin.com/in/vineethvl</a></p>
+</ul>
+</main>
 
-    <footer>
-        <p>&copy; 2025 THVINEE</p>
-    </footer>
+<footer>
+<p>&copy; 2025 THVINEE</p>
+</footer>
 
-    <div id="binary"></div>
+<div id="binary"></div>
 
-    <script>
-        function generateRandomBinary(length) {
-            let binaryString = '';
-            for (let i = 0; i < length; i++) {
-                binaryString += Math.random() < 0.5 ? '1' : '0'; // Randomly add 1 or 0
-            }
-            return binaryString;
-        }
+<script>
+function generateRandomBinary(length) {
+    let binaryString = '';
+    for (let i = 0; i < length; i++) {
+        binaryString += Math.random() < 0.5 ? '1' : '0'; // Randomly add 1 or 0
+    }
+    return binaryString;
+}
 
-        function displayRandomBinary() {
-            const binaryElement = document.getElementById('binary');
-            const randomLength = Math.floor(window.innerWidth / 10) * Math.floor(window.innerHeight / 10); // Calculate length based on screen size
-            binaryElement.innerHTML = ''; // Clear previous content
-            for (let i = 0; i < randomLength; i++) {
-                const span = document.createElement('span');
-                span.className = 'binary-digit';
-                span.textContent = generateRandomBinary(1); // Generate a single binary digit
-                binaryElement.appendChild(span);
-            }
-        }
+function displayRandomBinary() {
+    const binaryElement = document.getElementById('binary');
+    const randomLength = Math.floor(window.innerWidth / 10) * Math.floor(window.innerHeight / 10); // Calculate length based on screen size
+    binaryElement.innerHTML = ''; // Clear previous content
+    for (let i = 0; i < randomLength; i++) {
+        const span = document.createElement('span');
+        span.className = 'binary-digit';
+        span.textContent = generateRandomBinary(1); // Generate a single binary digit
+        binaryElement.appendChild(span);
+    }
+}
 
-        // Generate and display random binary on page load
-        displayRandomBinary();
+// Generate and display random binary on page load
+displayRandomBinary();
 
-        // Regenerate binary on window resize
-        window.addEventListener('resize', displayRandomBinary);
-    </script>
+// Regenerate binary on window resize
+window.addEventListener('resize', displayRandomBinary);
+</script>
 </body>
 </html>
